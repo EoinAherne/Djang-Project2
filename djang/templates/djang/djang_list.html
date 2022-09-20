@@ -8,5 +8,15 @@
 </head>
 <body>
     <h1>Things i need to do </h1>
+    {{ items }}
+
+    <table>
+        {% for items in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.done }}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
