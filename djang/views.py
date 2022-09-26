@@ -1,6 +1,10 @@
-from django.shortcuts import render 
+from django.shortcuts import render
+ 
 from.models import Item
+
 # Create your views here.
+
+
 def get_djang_list(request):
     items = Item.objects.all()
     context = {
