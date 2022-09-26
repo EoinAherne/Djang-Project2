@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
  
 from.models import Item
 
@@ -10,7 +10,16 @@ def get_djang_list(request):
     context = {
         'items': items
     }
-
     return render(request, 'djang/djang_list.html', context)
 
+
+def add_item(request):
+    if request.method == 'POST':
+        name = request.POST.get('item_name')
+        done = 'done' in request.POST
+        Item.objects.create(name=name, done=done)
+
+        return redirect('get_djang_list')
+
+    return render(request, 'djang/add_item.html')
      

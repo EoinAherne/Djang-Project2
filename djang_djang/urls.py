@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from djang.views import get_djang_list
+from djang.views import get_djang_list, add_item
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', get_djang_list, name='get_djang_list')
+    path('', get_djang_list, name='get_djang_list'),
+    path('add', add_item, name='add')
 ]
